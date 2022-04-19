@@ -1,7 +1,6 @@
 import express from 'express'
 
 const app = express()
-console.log(app)
 
 const hostname = 'localhost'
 const port = '5000'
@@ -14,4 +13,5 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
   console.log(`Hello, I'm running at ${hostname}:${port}/`)
+  console.log(app)
 })
