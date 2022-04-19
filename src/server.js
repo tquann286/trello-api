@@ -13,5 +13,4 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
   console.log(`Hello, I'm running at ${hostname}:${port}/`)
-  console.log(app)
 })
