@@ -1,0 +1,23 @@
+{
+  "name": "trello-api",
+  "version": "1.0.0",
+  "description": "trello-api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tquann286/trello-api.git"
+  },
+  "keywords": [],
+  "author": "tquann286",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tquann286/trello-api/issues"
+  },
+  "homepage": "https://github.com/tquann286/trello-api#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
