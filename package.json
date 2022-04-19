@@ -20,9 +20,16 @@
   "homepage": "https://github.com/tquann286/trello-api#readme",
   "dependencies": {
     "@babel/eslint-parser": "^7.17.0",
+    "@babel/runtime": "^7.17.9",
     "express": "^4.17.3"
   },
   "devDependencies": {
-    "eslint": "^8.13.0"
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.9",
+    "@babel/node": "^7.16.8",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "eslint": "^8.13.0",
+    "nodemon": "^2.0.15"
   }
 }
