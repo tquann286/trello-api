@@ -14,6 +14,10 @@ connectDB()
 const bootServer = () => {
   const app = express()
 
+  // Enable req.body data
+  app.use(express.json())
+
+  // Use APIs v1
   app.use('/v1', apiV1)
   
   app.listen(env.APP_PORT, env.APP_HOST, () => {
