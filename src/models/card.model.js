@@ -4,8 +4,8 @@ import { getDB } from '*/config/mongodb'
 // Define Card Collection
 const cardCollectionName = 'cards'
 const cardCollectionSchema = Joi.object({
-  boardId: Joi.string().required(),
-  columnId: Joi.string().required(),
+  boardId: Joi.string().required(), // also ObjectId when create new
+  columnId: Joi.string().required(), // also ObjectId when create new
   title: Joi.string().required().min(1).trim(),
   cover: Joi.string().default(null),
   createdAt: Joi.date().timestamp().default(Date.now()),
