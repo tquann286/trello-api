@@ -52,6 +52,14 @@ const getFullBoard = async (boardId) => {
 						as: 'columns',
 					},
 				},
+				{
+					$lookup: {
+						from: 'cards', // collection name
+						localField: '_id',
+						foreignField: 'boardId',
+						as: 'cards',
+					},
+				},
 			])
 			.toArray()
 		console.log(result)
