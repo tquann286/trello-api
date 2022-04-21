@@ -9,4 +9,24 @@ const createNew = async (data) => {
 	}
 }
 
-export const BoardService = { createNew }
+const getFullBoard = async (boardId) => {
+	try {
+		const board = await BoardModel.getFullBoard(boardId)
+
+		// Add card ti each column 
+		board.columns.forEach(column => {
+			column.cards = board.cards.filter(card => card.columnId.toString() === column._id.toString())
+		})
+
+		// Sort columns by columnOrder, cards by cardOrder, this step will be done by FE Dev
+		
+		// Remove cards data from board
+		delete board.cards
+
+    return board
+	} catch (error) {
+		throw new Error(error)
+	}
+}
+
+export const BoardService = { createNew, getFullBoard }
