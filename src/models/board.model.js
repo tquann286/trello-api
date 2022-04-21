@@ -1,6 +1,8 @@
 import Joi from 'joi'
 import { getDB } from '*/config/mongodb'
 import { ObjectID } from 'mongodb'
+import { ColumnModel } from './column.model'
+import { CardModel } from './card.model'
 
 // Define Board Collection
 const boardCollectionName = 'boards'
@@ -55,7 +57,7 @@ const getFullBoard = async (boardId) => {
 				{ $match: { _id: ObjectID(boardId) } },
 				{
 					$lookup: {
-						from: 'columns', // collection name
+						from: ColumnModel.columnCollectionName,
 						localField: '_id',
 						foreignField: 'boardId',
 						as: 'columns',
@@ -63,7 +65,7 @@ const getFullBoard = async (boardId) => {
 				},
 				{
 					$lookup: {
-						from: 'cards', // collection name
+						from: CardModel.cardCollectionName,
 						localField: '_id',
 						foreignField: 'boardId',
 						as: 'cards',
