@@ -44,7 +44,6 @@ const update = async (id, data) => {
 				{ $set: data },
 				{ returnOriginal: false }
 			)
-		console.log(result)
 		return result.value
 	} catch (error) {
 		throw new Error(error.message)

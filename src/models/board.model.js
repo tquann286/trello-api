@@ -28,6 +28,24 @@ const createNew = async (data) => {
 		throw new Error(error)
 	}
 }
+/**
+ * @param {string} boardId 
+ * @param {string} columnId 
+ */
+
+const pushColumnOrder = async (boardId, columnId) => {
+	try {
+		const result = await getDB().collection(boardCollectionName).findOneAndUpdate(
+			{ _id: ObjectID(boardId) },
+			{ $push: { columnOrder: columnId } },
+			{ returnOriginal: false }
+		)
+
+		return result.value
+	} catch (error) {
+		throw new Error(error)
+	}
+}
 
 const getFullBoard = async (boardId) => {
 	try {
@@ -60,4 +78,4 @@ const getFullBoard = async (boardId) => {
 	}
 }
 
-export const BoardModel = { createNew, getFullBoard }
+export const BoardModel = { createNew, getFullBoard, pushColumnOrder }
