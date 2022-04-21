@@ -7,7 +7,7 @@ const createNew = async (data) => {
 
 		//update columnOrder Array in Board collection
 		const { boardId, _id: newColumnId } = newColumn
-		const updatedBoard = await BoardModel.pushColumnOrder(boardId.toString(), newColumnId.toString())
+		await BoardModel.pushColumnOrder(boardId.toString(), newColumnId.toString())
 
     return newColumn
 	} catch (error) {
