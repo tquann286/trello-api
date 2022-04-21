@@ -28,11 +28,11 @@ const createNew = async (data) => {
 		throw new Error(error)
 	}
 }
+
 /**
  * @param {string} boardId 
  * @param {string} columnId 
  */
-
 const pushColumnOrder = async (boardId, columnId) => {
 	try {
 		const result = await getDB().collection(boardCollectionName).findOneAndUpdate(
