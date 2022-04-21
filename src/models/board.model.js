@@ -4,7 +4,7 @@ import { getDB } from '*/config/mongodb'
 // Define Board Collection
 const boardCollectionName = 'boards'
 const boardCollectionSchema = Joi.object({
-  title: Joi.string().required().min(1).max(30),
+  title: Joi.string().required().min(1).max(30).trim(),
   columnOrder: Joi.array().items(Joi.string()).default([]),
   createdAt: Joi.date().timestamp().default(Date.now()),
   updatedAt: Joi.date().timestamp().default(null),
