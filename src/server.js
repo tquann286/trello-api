@@ -1,7 +1,9 @@
 import express from 'express'
+import cors from 'cors'
 import { connectDB } from '*/config/mongodb'
 import { env } from '*/config/environment'
 import { apiV1 } from '*/routes/v1'
+
 
 connectDB()
   .then(() => console.log('Connected successfully to database server!'))
@@ -13,6 +15,21 @@ connectDB()
 
 const bootServer = () => {
   const app = express()
+
+  const WHITELIST_DOMAINS = ['http://localhost:3000','http://localhost:3001']
+  const corsOptions = {
+    origin: function (origin, callback) {
+      if (WHITELIST_DOMAINS.indexOf(origin) !== -1) {
+        callback(null, true)
+      } else {
+        callback(new Error(`${origin} not allowed by CORS`))
+      }
+    },
+    optionsSuccessStatus: 200
+  }
+
+  // app.use(cors(corsOptions))
+  app.use(cors())
 
   // Enable req.body data
   app.use(express.json())
