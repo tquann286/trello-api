@@ -6,6 +6,7 @@ const createNew = async (req, res, next) => {
 		boardId: Joi.string().required(),
 		columnId: Joi.string().required(),
 		title: Joi.string().required().min(1).trim(),
+		cover: Joi.string().trim()
 	})
 	try {
 		await condition.validateAsync(req.body, { abortEarly: false })
