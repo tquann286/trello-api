@@ -59,7 +59,10 @@ const update = async (id, data) => {
 	try {
 		const updateData = {
 			...data,
-			boardId: ObjectID(data.boardId)
+			boardId: ObjectID(data.boardId),
+		}
+		if (data.boardId) {
+			updateData.boardId = ObjectID(data.boardId)
 		}
 
 		const result = await getDB()
@@ -75,4 +78,9 @@ const update = async (id, data) => {
 	}
 }
 
-export const ColumnModel = { columnCollectionName, createNew, update, pushCardOrder }
+export const ColumnModel = {
+	columnCollectionName,
+	createNew,
+	update,
+	pushCardOrder,
+}

@@ -33,8 +33,7 @@ const createNew = async (data) => {
 const update = async (id, data) => {
 	try {
 		const updateData = {
-			...data,
-			_id: ObjectID(data._id)
+			...data
 		}
 
 		const result = await getDB()
