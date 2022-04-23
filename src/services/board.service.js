@@ -29,7 +29,6 @@ const getFullBoard = async (boardId) => {
 
     return board
 	} catch (error) {
-		console.log(error.message);
 		throw new Error(error)
 	}
 }
