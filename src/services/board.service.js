@@ -22,7 +22,7 @@ const getFullBoard = async (boardId) => {
 		// Filter deleted columns
 		transformBoard.columns = transformBoard.columns.filter(column => !column._destroy)
 
-		// Add card ti each column 
+		// Add card to each column 
 		transformBoard.columns.forEach(column => {
 			column.cards = transformBoard.cards.filter(card => card.columnId.toString() === column._id.toString())
 		})
