@@ -36,6 +36,25 @@ const createNew = async (data) => {
 	}
 }
 
+const update = async (id, data) => {
+	try {
+		const updateData = { ...data }
+		if (data.boardId) updateData.boardId = ObjectID(data.boardId)
+		if (data.columnId) updateData.columnId = ObjectID(data.columnId)
+
+		const result = await getDB()
+			.collection(cardCollectionName)
+			.findOneAndUpdate(
+				{ _id: ObjectID(id) },
+				{ $set: updateData },
+				{ returnOriginal: false }
+			)
+		return result.value
+	} catch (error) {
+		throw new Error(error.message)
+	}
+}
+
 /**
  * @param {Array of sting id card} ids
  */
@@ -52,4 +71,4 @@ const deleteMany = async (ids) => {
 	}
 }
 
-export const CardModel = { createNew, cardCollectionName, deleteMany }
+export const CardModel = { createNew, cardCollectionName, deleteMany, update }
